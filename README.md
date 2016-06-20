@@ -1,0 +1,2 @@
+# MidtermMidterm
+POS Terminal Project
