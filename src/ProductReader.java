@@ -30,10 +30,10 @@ public class ProductReader {
 				String[] details = line.split("\t");
 				// System.out.println(line);
 
+				productList.add(line);
+
 				line = reader.readLine();
 
-				productList.add(line);
-				
 				System.out.println(line);
 				
 
