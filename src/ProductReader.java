@@ -39,7 +39,7 @@ public class ProductReader {
 
 			}
 
-			System.out.println("Here's an attempt at an array" + productList.get(3) );
+			System.out.println("Here's an attempt at an array " + productList.get(3) );
 
 			reader.close();
 
@@ -47,6 +47,11 @@ public class ProductReader {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
+		
+		//display a receipt with all items stored, sub total, grant total, and appropriate payment info 
+		//use the arraylist created to keep track of what's been ordered 
+		
+		//returns the original menu for a new order Using the do while loop 
 	}
 
 }
