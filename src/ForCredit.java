@@ -1,16 +1,16 @@
 
 public class ForCredit {
 	//get the credit card number, expiration, and CVV 
-	private int cardNumber; 
-	private int expiration; 
+	private double cardNumber; 
+	private String expiration; 
 	private int CVV; 
 	
-	public int getCardNumber() {
+	public double getCardNumber() {
 		return cardNumber;
 	}
 
 
-	public int getExpiration() {
+	public String getExpiration() {
 		return expiration;
 	}
 	
@@ -19,12 +19,12 @@ public class ForCredit {
 	}
 
 
-	public void setCardNumber(int cardNumber) {
+	public void setCardNumber(double cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
 
-	public void setExpiration(int expiration) {
+	public void setExpiration(String expiration) {
 		this.expiration = expiration;
 	}
 	
