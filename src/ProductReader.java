@@ -3,12 +3,14 @@ import java.io.File;
 import java.io.FileReader;
 
 public class ProductReader {
-	
-	public static void foodReader() {
+	public static void main(String[] args) {
+		
+
+	//public static void foodReader() {
 
 		try {
 			// creating new file object
-			File productReader = new File("Products.txt");
+			File productReader = new File("countries.txt");
 			// creating filereader connection
 			FileReader fileReader = new FileReader(productReader);
 

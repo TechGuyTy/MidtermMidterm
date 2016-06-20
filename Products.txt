@@ -1,0 +1,12 @@
+Grape	Slushie	A refreshing Grape drink	2.99
+Watermelon	Slushie	A refreshing Watermelon drink	2.99
+Orange	Slushie	A refreshing Orange drink	2.99
+Strawberry	Slushie	A refreshing Strawberry drink	2.99
+Turkey	Burgers	A tasty turkey burger	6.99
+Chicken	Burgers	A tasty chicken burger	6.99
+Beef	Burgers	A tasty beef burger	6.99
+BlackBean	Burgers	A tasty blackbean burger	6.99
+Shoestring	fries	Delicious shoestring fries	3.99
+Sweet-Potato	fries	Delicious Sweet Potato fries	3.99
+Waffle	fries	Delicious Waffle fries	3.99
+Tots	fries	Delicious Tater tots	3.99
