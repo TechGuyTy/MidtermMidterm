@@ -10,7 +10,7 @@ public class ProductReader {
 
 		try {
 			// creating new file object
-			File productReader = new File("countries.txt");
+			File productReader = new File("Products.txt");
 			// creating filereader connection
 			FileReader fileReader = new FileReader(productReader);
 
