@@ -8,9 +8,9 @@ public class ProductReader {
 
 		try {
 			// creating new file object
-			File reader = new File("Products.txt");
+			File productReader = new File("Products.txt");
 			// creating filereader connection
-			FileReader fileReader = new FileReader(reader);
+			FileReader fileReader = new FileReader(productReader);
 
 			// creating reader chain
 			BufferedReader reader = new BufferedReader(fileReader);
