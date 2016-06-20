@@ -9,8 +9,18 @@ public class Product {
 	public Product(String name, String category, String description, double price){
 		this.name = name;
 		this.category = category;
+		this.description = description;
 		this.price = price;
 	}
+	
+	public Product(String name, String category, String description, String price){
+		this.name = name;
+		this.category = category;
+		this.description = description;
+		this.price = Double.parseDouble(price);
+		}
+	
+	
 	
 	public String getName() {
 		return name;
