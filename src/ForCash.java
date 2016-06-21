@@ -56,6 +56,12 @@ public class ForCash implements Payment{
 		return grandTotalString;
 	}
 
+	@Override
+	public String getGrandTotal() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
