@@ -110,7 +110,3 @@ public class ProductReader {
 		//returns the original menu for a new order Using the do while loop 
 	}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c0854584adc10da001d582e944b13b590d14366f
