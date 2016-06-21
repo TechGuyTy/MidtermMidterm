@@ -9,10 +9,7 @@ public class ForCash {
 		
 		this.cashPaid = cashPaid;
 		this.change = (cashPaid - price);
-		
-		
-	}
-	
+		}
 	
 	public double getChange() {
 		return change;

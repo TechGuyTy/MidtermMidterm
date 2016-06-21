@@ -10,6 +10,6 @@ public class ForCheck {
 	public void setCheck(int check){
 		this.check = check;
 	}
-	
+
 }
 //Ff
