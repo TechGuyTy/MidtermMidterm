@@ -14,16 +14,16 @@ public class ProductReader {
 		
 	public static boolean ToContinue() {
 		
-		System.out.println("would you like to complete your purchase ?(y/n)");
+		System.out.println("would you like to continue with your purchase ?(y/n)");
 		Scanner scan2 = new Scanner (System.in);
 		String complete = scan2.nextLine();
 	
 		if (complete.equalsIgnoreCase("y") || complete.equalsIgnoreCase("yes")){
 			System.out.println(" ");
-			repeatMenu = false; 
+			repeatMenu = true; 
 		}else if (complete.equalsIgnoreCase("n") || complete.equalsIgnoreCase("no")){
 			System.out.println(" ");
-			repeatMenu = true; 
+			repeatMenu = false; 
 		}else {
 			System.out.println("Sorry, please enter \"y\" or \"n\"");
 		}
@@ -76,47 +76,7 @@ public class ProductReader {
 		
 			ArrayList<Product> productList = new ArrayList<Product>();
 	
-			try {
-				// creating new file object
-				File productReader = new File("Products.txt");
-				// creating filereader connection
-				FileReader fileReader = new FileReader(productReader);
-	
-				// creating reader chain
-				BufferedReader reader = new BufferedReader(fileReader);
-	
-				// reading the file
-				String line = reader.readLine();
-	
-	
-				int i = 0;
-				while (line != null) {
-	
-					String[] details = line.split("\t");
-	
-					// System.out.println(line);
-					Product temp = new Product();
-					temp.setName(details[0]);
-					temp.setCategory(details[1]);
-					temp.setDescription(details[2]);
-					temp.setPrice(details[3]);
-	
-					System.out.println(line);
-	
-					line = reader.readLine();
-	
-					productList.add(temp);
-	
-				}
-	
-				reader.close();
-	
-				System.out.println(productList);
-	
-			} catch (Exception ex) {
-				// TODO Auto-generated catch block
-				ex.printStackTrace();
-			}
+		
 			// basic menu not seperated by catagories yet
 			Scanner sc = new Scanner(System.in);
 			System.out.println("");
@@ -126,6 +86,47 @@ public class ProductReader {
 			ArrayList<Product> shoppingCart = new ArrayList<Product>();
 			
 			while (repeatMenu == true) {
+				try {
+					// creating new file object
+					File productReader = new File("Products.txt");
+					// creating filereader connection
+					FileReader fileReader = new FileReader(productReader);
+		
+					// creating reader chain
+					BufferedReader reader = new BufferedReader(fileReader);
+		
+					// reading the file
+					String line = reader.readLine();
+		
+		
+					int i = 0;
+					while (line != null) {
+		
+						String[] details = line.split("\t");
+		
+						// System.out.println(line);
+						Product temp = new Product();
+						temp.setName(details[0]);
+						temp.setCategory(details[1]);
+						temp.setDescription(details[2]);
+						temp.setPrice(details[3]);
+		
+						System.out.println(line);
+		
+						line = reader.readLine();
+		
+						productList.add(temp);
+		
+					}
+		
+					reader.close();
+		
+					System.out.println(productList);
+		
+				} catch (Exception ex) {
+					// TODO Auto-generated catch block
+					ex.printStackTrace();
+				}
 				System.out.println("Enter a menu number");
 				System.out.println();
 				int choice = sc.nextInt();
@@ -240,7 +241,7 @@ public class ProductReader {
 //				break;
 				
 			}
-			
+				System.out.println("Thank you for your purchase ");
 				finalTotal = finalTotal + subTotal;
 				System.out.println("Your final total is " + finalTotal);
 				
