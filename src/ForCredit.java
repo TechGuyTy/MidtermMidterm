@@ -4,6 +4,10 @@ public class ForCredit implements Payment{
 	private double cardNumber; 
 	private String expiration; 
 	private int CVV; 
+	private double subTotal; 
+	private double salesTax; 
+	private double grandTotal; 
+	private String grandTotalString;
 	
 	public double getCardNumber() {
 		return cardNumber;
@@ -34,30 +38,29 @@ public class ForCredit implements Payment{
 
 
 	@Override
-	public double subTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getSubTotal() {
+		return subTotal; 
 	}
 
 
 	@Override
-	public double salesTax() {
+	public double getSalesTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return salesTax;
 	}
 
 
 	@Override
-	public double grandTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getGrandTotal() {
+		grandTotal = subTotal * salesTax + subTotal;   
+		return grandTotal;
 	}
 
 
 	@Override
-	public String getGrandTotal() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getGrandTotalString() {
+		grandTotalString = grandTotal + " ";
+		return grandTotalString;
 	}
 	
 }
