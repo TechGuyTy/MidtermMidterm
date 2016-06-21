@@ -1,5 +1,5 @@
 
-public class ForCredit {
+public class ForCredit implements Payment{
 	//get the credit card number, expiration, and CVV 
 	private double cardNumber; 
 	private String expiration; 
@@ -30,6 +30,34 @@ public class ForCredit {
 	
 	public void setCVV(int CVV) {
 		this.CVV = CVV;
+	}
+
+
+	@Override
+	public double subTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double salesTax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double grandTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public String getGrandTotal() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
