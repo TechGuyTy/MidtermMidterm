@@ -52,8 +52,8 @@ public class ForCash implements Payment{
 
 	@Override
 	public double getGrandTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		grandTotal = subTotal * salesTax + subTotal;
+		return grandTotal;
 	}
 
 }
