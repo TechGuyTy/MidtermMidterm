@@ -64,18 +64,18 @@ public class ProductReader {
 		}
 		return badPayment;
 	}
-
-	public void getCheckNumber(Scanner sc, String prompt) {
-		System.out.println(prompt);
-		int checkNumber = sc.nextInt();
-		System.out.println("Here is your receipt");
-	}
-
-	public void getCCNumber(Scanner sc, String prompt) {
-		System.out.println(prompt);
-		int ccNumber = sc.nextInt();
-		System.out.println("Here is your receipt");
-	}
+// implemented into the ForCheck class 
+	//public void getCheckNumber(Scanner sc, String prompt) {
+		//System.out.println(prompt);
+		//int checkNumber = sc.nextInt();
+		//System.out.println("Here is your receipt");
+	//}
+//implemented into the ForCheck class 
+	//public void getCCNumber(Scanner sc, String prompt) {
+		//System.out.println(prompt);
+		//int ccNumber = sc.nextInt();
+		//System.out.println("Here is your receipt");
+	//}
 
 	public static void main(String[] args) {
 		int a = 0;
@@ -272,11 +272,14 @@ public class ProductReader {
 		String payment = sc.nextLine();
 		if (payment.equalsIgnoreCase("cash")) {
 			ProductReader.getCash(sc, "Enter amount you'd like to pay", finalTotal);
-		} else {
-			System.out.println("Bye!");
-		}
-		
-		 System.out.println("Would you like to add an item to the menu? ");
+		} else if (payment.equalsIgnoreCase("check")){
+			ForCheck.getCheck(sc, "Enter amount you'd like to pay");
+		} else if (payment.equalsIgnoreCase("credit card")){
+			ForCredit.getCardNumber(sc, "Enter your credit card number below");
+		} else 
+			System.out.println(" Sorry, we only accept cash, check, or credit card");
+			
+		System.out.println("Would you like to add an item to the menu? ");
          
          sc.nextLine();
          String newItem = sc.nextLine();

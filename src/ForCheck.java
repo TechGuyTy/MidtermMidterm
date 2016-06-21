@@ -1,13 +1,17 @@
+import java.util.Scanner;
 
 public class ForCheck implements Payment{
 	//get the check number 
-	private int check; 
+	private static int check; 
 	private double subTotal; 
 	private double salesTax; 
 	private double grandTotal; 
 	private String grandTotalString;
 	
-	public int getCheck(){
+	public static int getCheck(Scanner sc, String prompt){
+		System.out.println(prompt);
+		int checkNumber = sc.nextInt();
+		System.out.println("Here is your receipt");
 		return check; 
 	}
 	

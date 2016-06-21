@@ -1,7 +1,8 @@
+import java.util.Scanner;
 
 public class ForCredit implements Payment{
 	//get the credit card number, expiration, and CVV 
-	private double cardNumber; 
+	private static double cardNumber; 
 	private String expiration; 
 	private int CVV; 
 	private double subTotal; 
@@ -9,7 +10,10 @@ public class ForCredit implements Payment{
 	private double grandTotal; 
 	private String grandTotalString;
 	
-	public double getCardNumber() {
+	public static double getCardNumber(Scanner sc, String prompt) {
+		System.out.println(prompt);
+		int ccNumber = sc.nextInt();
+		System.out.println("Here is your receipt");
 		return cardNumber;
 	}
 
