@@ -19,6 +19,12 @@ public class Product {
 		this.price = Double.parseDouble(price);
 		}
 	
+	public Product(){
+		this.name = null;
+		this.category = null;
+		this.description = null;
+		this.price = 0;
+	}
 	
 	
 	public String getName() {
@@ -51,6 +57,10 @@ public class Product {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	public void setPrice(String details) {
+		this.price = Double.parseDouble(details);
 	}
 	
 	public String toString() {

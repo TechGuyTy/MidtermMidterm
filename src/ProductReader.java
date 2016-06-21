@@ -9,7 +9,7 @@ public class ProductReader {
 
 		// public static void foodReader() {
 
-		ArrayList<String> productList = new ArrayList<String>();
+		ArrayList<Product> productList = new ArrayList<Product>();
 
 		try {
 			// creating new file object
@@ -20,31 +20,40 @@ public class ProductReader {
 			// creating reader chain
 			BufferedReader reader = new BufferedReader(fileReader);
 
+			ArrayList<String> productArray = new ArrayList<String>();
 			// reading the file
 			String line = reader.readLine();
 
+			productArray.add(line);
+			
 			int i = 0;
-			String[] productArray = {};
-
 			while (line != null) {
+				
+				productArray.add(line);
+				String[] details = line.split("\t");
 
-				String[] details = line.split(line);
 				// System.out.println(line);
-
-				productList.add(line);
+				Product temp = new Product();
+				temp.setName(details[0]);
+				temp.setCategory(details[1]);
+				temp.setDescription(details[2]);
+				temp.setPrice(details[3]);
+				
+				System.out.println(line);
 
 				line = reader.readLine();
+				
+				productList.add(temp);
 
-				System.out.println(line);
+
 				
 
 			}
 
-			System.out.println("Here's an attempt at an array " + productList.get(3) );
-			System.out.println(productList.get(4));
 
 			reader.close();
 			
+			System.out.println(productList);
 
 			
 

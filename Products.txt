@@ -1,12 +1,12 @@
-1. Grape-Slushie	    A refreshing Grape drink	2.99
-2. Watermelon-Slushie	A refreshing Watermelon drink	2.99
-3. Orange-Slushie	    A refreshing Orange drink	2.99
-4. Strawberry-Slushie	A refreshing Strawberry drink	2.99
-5. Turkey-Burgers	    A tasty turkey burger	6.99
-6. Chicken-Burgers	    A tasty chicken burger	6.99
-7. Beef-Burgers	    A tasty beef burger	6.99
-8. BlackBean-Burgers	A tasty blackbean burger	6.99
-9. Shoestring-fries	Delicious shoestring fries	3.99
-10. Sweet-Potato-fries	Delicious Sweet Potato fries	3.99
-11. Waffle-fries 	    Delicious Waffle fries	3.99
-12. Tots-fries	        Delicious Tater tots	3.99
+1. Grape-	Slushie	    A refreshing Grape drink	2.99
+2. Watermelon-	Slushie	A refreshing Watermelon drink	2.99
+3. Orange-	Slushie	    A refreshing Orange drink	2.99
+4. Strawberry-	Slushie	A refreshing Strawberry drink	2.99
+5. Turkey-	Burgers	    A tasty turkey burger	6.99
+6. Chicken-	Burgers	    A tasty chicken burger	6.99
+7. Beef-	Burgers	    A tasty beef burger	6.99
+8. BlackBean-	Burgers	A tasty blackbean burger	6.99
+9. Shoestring-	fries	Delicious shoestring fries	3.99
+10. Sweet-Potato-	fries	Delicious Sweet Potato fries	3.99
+11. Waffle-	fries 	    Delicious Waffle fries	3.99
+12. Tots-	fries	        Delicious Tater tots	3.99
