@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Product {
 	private String name; 
 	private String category; 
