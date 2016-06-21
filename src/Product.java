@@ -1,4 +1,3 @@
-
 public class Product {
 	private String name; 
 	private String category; 
@@ -57,5 +56,4 @@ public class Product {
 	public String toString() {
 		return name + "(" + category + ")" + description + price;
 	}
-	
 }
