@@ -54,6 +54,7 @@ public class ProductReader {
 		}
 		//basic menu not seperated by catagories yet
 		Scanner sc = new Scanner(System.in);
+		System.out.println("");
 		System.out.println("Enter a menu number");
 		System.out.println();
 		int choice = sc.nextInt();
