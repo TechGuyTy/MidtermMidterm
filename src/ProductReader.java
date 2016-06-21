@@ -6,16 +6,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProductReader {
-
+	static boolean repeatMenu = true; 
 	public static double calculateTotal(Product productName, int n) {
-		
-		
 		double total = ((double)n) * productName.getPrice();
 		return total;
+	}	
 		
+	public static boolean ToContinue() {
 		
-		
-		
+		System.out.println("would you like to complete your purchase ?(y/n)");
+		Scanner scan2 = new Scanner (System.in);
+		String complete = scan2.nextLine();
+	
+		if (complete.equalsIgnoreCase("y") || complete.equalsIgnoreCase("yes")){
+			System.out.println(" ");
+			repeatMenu = false; 
+		}else if (complete.equalsIgnoreCase("n") || complete.equalsIgnoreCase("no")){
+			System.out.println(" ");
+			repeatMenu = true; 
+		}else {
+			System.out.println("Sorry, please enter \"y\" or \"n\"");
+		}
+		return repeatMenu;
+	}
 		
 		
 		
@@ -24,7 +37,6 @@ public class ProductReader {
 //		int quantity = scan.nextInt();
 //		double total = quantity * productName.getPrice();
 //		return total;
-	}
 	/*
 	 * public static void shoppingCart() { ArrayList<String> shoppingCart = new
 	 * ArrayList<String>();
@@ -57,82 +69,86 @@ public class ProductReader {
 	}
 
 	public static void main(String[] args) {
-
+		int a = 0;
+		
 		// public static void foodReader() {
-
-		ArrayList<Product> productList = new ArrayList<Product>();
-
-		try {
-			// creating new file object
-			File productReader = new File("Products.txt");
-			// creating filereader connection
-			FileReader fileReader = new FileReader(productReader);
-
-			// creating reader chain
-			BufferedReader reader = new BufferedReader(fileReader);
-
-			// reading the file
-			String line = reader.readLine();
-
-
-			int i = 0;
-			while (line != null) {
-
-				String[] details = line.split("\t");
-
-				// System.out.println(line);
-				Product temp = new Product();
-				temp.setName(details[0]);
-				temp.setCategory(details[1]);
-				temp.setDescription(details[2]);
-				temp.setPrice(details[3]);
-
-				System.out.println(line);
-
-				line = reader.readLine();
-
-				productList.add(temp);
-
-			}
-
-			reader.close();
-
-			System.out.println(productList);
-
-		} catch (Exception ex) {
-			// TODO Auto-generated catch block
-			ex.printStackTrace();
-		}
-		// basic menu not seperated by catagories yet
-		Scanner sc = new Scanner(System.in);
-		System.out.println("");
-		double subTotal = 0;
-		double finalTotal = 0;
-		boolean repeatMenu = false;
-		ArrayList<Product> shoppingCart = new ArrayList<Product>();
-		while (repeatMenu == false) {
-			System.out.println("Enter a menu number");
-			System.out.println();
-			int choice = sc.nextInt();
-
-			
-			System.out.println("How many would you like?");
-			
-			int quantity = sc.nextInt();
-			
-			choice = choice -1;
-			
-			subTotal = calculateTotal(productList.get(choice), quantity);
-			
-			for(int i = 0; i < quantity; i++){
-				shoppingCart.add(productList.get(choice));
+		
+		
+			ArrayList<Product> productList = new ArrayList<Product>();
+	
+			try {
+				// creating new file object
+				File productReader = new File("Products.txt");
+				// creating filereader connection
+				FileReader fileReader = new FileReader(productReader);
+	
+				// creating reader chain
+				BufferedReader reader = new BufferedReader(fileReader);
+	
+				// reading the file
+				String line = reader.readLine();
+	
+	
+				int i = 0;
+				while (line != null) {
+	
+					String[] details = line.split("\t");
+	
+					// System.out.println(line);
+					Product temp = new Product();
+					temp.setName(details[0]);
+					temp.setCategory(details[1]);
+					temp.setDescription(details[2]);
+					temp.setPrice(details[3]);
+	
+					System.out.println(line);
+	
+					line = reader.readLine();
+	
+					productList.add(temp);
+	
 				}
-
-			System.out.println();
-			System.out.println(shoppingCart);
-			finalTotal = finalTotal + subTotal;
-			System.out.println(finalTotal);
+	
+				reader.close();
+	
+				System.out.println(productList);
+	
+			} catch (Exception ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+			}
+			// basic menu not seperated by catagories yet
+			Scanner sc = new Scanner(System.in);
+			System.out.println("");
+			double subTotal = 0;
+			double finalTotal = 0;
 			
+			ArrayList<Product> shoppingCart = new ArrayList<Product>();
+			
+			while (repeatMenu == true) {
+				System.out.println("Enter a menu number");
+				System.out.println();
+				int choice = sc.nextInt();
+	
+				
+				System.out.println("How many would you like?");
+				
+				int quantity = sc.nextInt();
+				
+				choice = choice -1;
+				
+				subTotal = calculateTotal(productList.get(choice), quantity);
+				
+				for(int i = 0; i < quantity; i++){
+					shoppingCart.add(productList.get(choice));
+					}
+	
+				System.out.println();
+				System.out.println(shoppingCart);
+				finalTotal = finalTotal + subTotal;
+				System.out.println(finalTotal);
+			//call the toContinue method 
+				ProductReader.ToContinue(); 
 //			switch (choice) {
 //			case 1:
 //				productList.get(0);
@@ -222,11 +238,15 @@ public class ProductReader {
 
 //			default:
 //				break;
+				
 			}
-			finalTotal = finalTotal + subTotal;
-			System.out.println(finalTotal);
-		}
+			
+				finalTotal = finalTotal + subTotal;
+				System.out.println("Your final total is " + finalTotal);
+				
+		
 	}
+}
 
 	// display a receipt with all items stored, sub total, grant total, and
 	// appropriate payment info
