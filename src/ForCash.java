@@ -5,7 +5,7 @@ public class ForCash implements Payment{
 	private double subTotal; 
 	private double salesTax; 
 	private double grandTotal; 
-	
+	private String grandTotalString;
 	
 	public ForCash(double price, double cashPaid){
 		
@@ -32,36 +32,28 @@ public class ForCash implements Payment{
 		this.cashPaid = cashPaid;
 	}
 
+
+
 	@Override
-	public double subTotal() {
-		// TODO Auto-generated method stub
+	public double getSubTotal() {
 		return subTotal;
 	}
 
 	@Override
-	public double salesTax() {
-		// TODO Auto-generated method stub
+	public double getSalesTax() {
 		return salesTax;
 	}
 
 	@Override
-	public double grandTotal() {
-		grandTotal = subTotal * salesTax + subTotal;   
-		return grandTotal;
-	}
-
-	@Override
 	public String getGrandTotalString() {
-		// TODO Auto-generated method stub
+		grandTotalString = grandTotal + " ";
 		return grandTotalString;
 	}
 
 	@Override
-	public String getGrandTotal() {
+	public double getGrandTotal() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
-
-
 
 }

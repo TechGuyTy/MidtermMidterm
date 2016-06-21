@@ -2,6 +2,10 @@
 public class ForCheck implements Payment{
 	//get the check number 
 	private int check; 
+	private double subTotal; 
+	private double salesTax; 
+	private double grandTotal; 
+	private String grandTotalString;
 	
 	public int getCheck(){
 		return check; 
@@ -12,28 +16,25 @@ public class ForCheck implements Payment{
 	}
 
 	@Override
-	public double subTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getSubTotal() {
+		return subTotal;
 	}
 
 	@Override
-	public double salesTax() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getSalesTax() {
+		return salesTax; 
 	}
 
 	@Override
-	public double grandTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getGrandTotal() {
+		grandTotal = subTotal * salesTax + subTotal;   
+		return grandTotal;
 	}
 
 	@Override
-	public String getGrandTotal() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getGrandTotalString() {
+		grandTotalString = grandTotal + " ";
+		return grandTotalString;
 	}
-
 }
 //Ff
