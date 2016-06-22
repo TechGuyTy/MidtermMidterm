@@ -33,6 +33,7 @@ public class ProductReader {
 			System.out.println("Sorry, please enter \"y\" or \"n\"");
 		}
 		return repeatMenu;
+		
 	}
 
 	// Scanner scan = new Scanner(System.in);
@@ -106,7 +107,7 @@ public class ProductReader {
 				// reading the file
 				String line = reader.readLine();
 
-				int i = 0;
+				//int i = 0;
 				while (line != null) {
 
 					String[] details = line.split("\t");
@@ -160,18 +161,19 @@ public class ProductReader {
 		System.out.println("Thank you for your purchase ");
 		//finalTotal = finalTotal + subTotal;
 		System.out.println("Your final total is " + finalTotal);
-		System.out.println("How would you like to pay? (cash,check, credit card)");
+		System.out.println("How would you like to pay? ((1)cash,(2)check,(3)credit card)");
 		sc.nextLine();
-		String payment = sc.nextLine();
+		int payment = sc.nextInt();
 		Payment pay = new ForCash();
-		if (payment.equalsIgnoreCase("cash")) {
+		Payment check = new ForCheck();
+		if (payment == 1) {
 			pay.getCash(finalTotal,sc);
-		} else if (payment.equalsIgnoreCase("check")){
-			ForCheck.getCheck(sc, "Enter amount you'd like to pay");
-		} else if (payment.equalsIgnoreCase("credit card")){
+		} else if (payment == 2){
+			check.getCheck(finalTotal,sc);
+		} else if (payment == 3){
 			ForCredit.getCardNumber(sc, "Enter your credit card number below");
 		} else 
-			System.out.println(" Sorry, we only accept cash, check, or credit card");
+			System.out.println(" Sorry, we only accept (1)cash, (2)check, or (3)credit card");
 			
 		System.out.println("Would you like to add an item to the menu? ");
          

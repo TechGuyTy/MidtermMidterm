@@ -10,4 +10,5 @@ public interface Payment {
 	double getChange();
 	String getGrandTotalString();
 	void getCash(double subTotal, Scanner sc);
+	void getCheck(double subTotal, Scanner sc);
 }

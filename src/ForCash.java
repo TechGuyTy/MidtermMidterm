@@ -16,24 +16,26 @@ public class ForCash implements Payment{
 	public  void getCash(double subTotal, Scanner scan) {
 		setSubTotal(subTotal);
 		getGrandTotal();
-		System.out.println("Enter cash value");
-		double cash = (scan.nextDouble());
-		setCashPaid(cash);
-		if (getCashPaid() < getGrandTotal()) {
-			System.out.println("This does not equal the total. Please check the total and input the" + "right amount.");
-		} else {
-			setChange(change);
-			System.out.println("Here is your change" + getChange());
-		}
+		boolean rightAmount = true; 
+		do
+		{
+			System.out.println("Enter cash value");
+			double cash = scan.nextDouble();
+			setCashPaid(cash);
+			if (getCashPaid() < getGrandTotal()) {
+				System.out.println("This does not equal the total. Please check the total and input the" + "right amount.");
+				rightAmount = false;
+			} else {
+				setChange(change);
+				System.out.println("Here is your change" + getChange());
+				rightAmount = true;
+			}
+		}while (rightAmount == false);
 		
 	}
 	
 	private void setSubTotal(double subTotal) {
 		this.subTotal = subTotal;
-		
-	}
-
-	private void setGrandTotal() {
 		
 	}
 
@@ -91,6 +93,11 @@ public class ForCash implements Payment{
 	public double setSubTotal() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public void getCheck(double subTotal, Scanner sc) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
