@@ -83,124 +83,141 @@ public class ProductReader {
 
 		// public static void foodReader() {
 
-		ArrayList<Product> productList = new ArrayList<Product>();
+		ArrayList<Product> productList;
 
 		// basic menu not seperated by catagories yet
-		Scanner sc = new Scanner(System.in);
-		System.out.println("");
-		double subTotal = 0;
-		double finalTotal = 0;
+		Scanner sc;
+		do {
+			productList = new ArrayList<Product>();
+			sc = new Scanner(System.in);
+			System.out.println("");
+			double subTotal = 0;
+			double finalTotal = 0;
+			ArrayList<Product> shoppingCart = new ArrayList<Product>();
+			int placeHolder = 0;
+			while (repeatMenu == true) {
+				try {
+					// creating new file object
+					File productReader = new File("Products.txt");
+					// creating filereader connection
+					FileReader fileReader = new FileReader(productReader);
 
-		ArrayList<Product> shoppingCart = new ArrayList<Product>();
+					// creating reader chain
+					BufferedReader reader = new BufferedReader(fileReader);
 
-		int placeHolder = 0;
-		while (repeatMenu == true) {
-			try {
-				// creating new file object
-				File productReader = new File("Products.txt");
-				// creating filereader connection
-				FileReader fileReader = new FileReader(productReader);
+					// reading the file
+					String line = reader.readLine();
 
-				// creating reader chain
-				BufferedReader reader = new BufferedReader(fileReader);
+					//int i = 0;
+					while (line != null) {
 
-				// reading the file
-				String line = reader.readLine();
+						String[] details = line.split("\t");
 
-				//int i = 0;
-				while (line != null) {
+						// System.out.println(line);
+						Product temp = new Product();
+						temp.setName(details[0]);
+						temp.setCategory(details[1]);
+						temp.setDescription(details[2]);
+						temp.setPrice(details[3]);
 
-					String[] details = line.split("\t");
+						System.out.println(line);
 
-					// System.out.println(line);
-					Product temp = new Product();
-					temp.setName(details[0]);
-					temp.setCategory(details[1]);
-					temp.setDescription(details[2]);
-					temp.setPrice(details[3]);
+						line = reader.readLine();
 
-					System.out.println(line);
+						productList.add(temp);
 
-					line = reader.readLine();
+					}
 
-					productList.add(temp);
+					reader.close();
 
+				} catch (Exception ex) {
+					// TODO Auto-generated catch block
+					ex.printStackTrace();
+				}
+				System.out.println("Enter a menu number");
+				int choice = sc.nextInt();
+
+				System.out.println("How many would you like?");
+
+				int quantity = sc.nextInt();
+				placeHolder += quantity;
+				choice = choice - 1;
+
+				subTotal = calculateTotal(productList.get(choice), quantity);
+				for (int i = 0; i < quantity; i++) {
+					shoppingCart.add(productList.get(choice));
+				}
+				for (int i = 0; i < placeHolder; i++) {
+					System.out.println(shoppingCart.get(i));
 				}
 
-				reader.close();
+				finalTotal = finalTotal + subTotal;
+				System.out.println("Subtotal " + finalTotal);
+				// call the toContinue method
+				ProductReader.ToContinue();
 
-			} catch (Exception ex) {
-				// TODO Auto-generated catch block
-				ex.printStackTrace();
 			}
-			System.out.println("Enter a menu number");
-			int choice = sc.nextInt();
-
-			System.out.println("How many would you like?");
-
-			int quantity = sc.nextInt();
-			placeHolder += quantity;
-			choice = choice - 1;
-
-			subTotal = calculateTotal(productList.get(choice), quantity);
-			for (int i = 0; i < quantity; i++) {
-				shoppingCart.add(productList.get(choice));
-			}
-			for (int i = 0; i < placeHolder; i++) {
-				System.out.println(shoppingCart.get(i));
-			}
-
-
-			finalTotal = finalTotal + subTotal;
-			System.out.println("Subtotal "+finalTotal);
-			// call the toContinue method
-			ProductReader.ToContinue();
-
-
-		}
-		System.out.println("Thank you for your purchase ");
-		//finalTotal = finalTotal + subTotal;
-		System.out.println("Your final total is " + finalTotal);
-		System.out.println("How would you like to pay? ((1)cash,(2)check,(3)credit card)");
-		sc.nextLine();
-		int payment = sc.nextInt();
-		Payment pay = new ForCash();
-		Payment check = new ForCheck();
-		if (payment == 1) {
-			pay.getCash(finalTotal,sc);
-		} else if (payment == 2){
-			check.getCheck(finalTotal,sc);
-		} else if (payment == 3){
-			ForCredit.getCardNumber(sc, "Enter your credit card number below");
-		} else 
-			System.out.println(" Sorry, we only accept (1)cash, (2)check, or (3)credit card");
+			System.out.println("Thank you for your purchase ");
+			//finalTotal = finalTotal + subTotal;
+			System.out.println("Your final total is " + finalTotal);
+			System.out.println("How would you like to pay? ((1)cash,(2)check,(3)credit card)");
+			sc.nextLine();
+			int payment = sc.nextInt();
+			Payment pay = new ForCash();
+			Payment check = new ForCheck();
+			if (payment == 1) {
+				pay.getCash(finalTotal, sc);
+			} else if (payment == 2) {
+				check.getCheck(finalTotal, sc);
+			} else if (payment == 3) {
+				ForCredit.getCardNumber(sc, "Enter your credit card number below");
+			} else
+				System.out.println(" Sorry, we only accept (1)cash, (2)check, or (3)credit card");
 			
-		System.out.println("Would you like to add an item to the menu? ");
-        
-        sc.nextLine();
-        
-        System.out.println("What is the name of the item you would like to add?");
-        String name = ( (productList.size()+1) + ". " + sc.nextLine() + "\t");
-        System.out.println("What is the name of the category for the item you would like to add?");
-        String category = (sc.nextLine()+"\t");
-        System.out.println("What is a description for the item you would like to add?");
-        String description = (sc.nextLine()+"\t");
-        System.out.println("What is the price of the item you would like to add?");
-        String price = sc.nextLine();
-        
-        Product newItem = new Product(name, category, description, price);
-        
-        
-        try(FileWriter fw = new FileWriter("Products.txt", true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter out = new PrintWriter(bw))
-            {
-            
-                out.print("\n"+newItem);
-                //more code
-            } catch (IOException e) {
-                //exception handling left as an exercise for the reader
-            }
+			System.out.println("Would you like to place another order? \n1. Yes, Please!\n2. No, Thank You");
+			
+			sc.nextLine();
+			String newOrder = sc.nextLine();
+			Validator.isValidChoiceForNewOrder(sc, newOrder);
+			
+			if(newOrder.equalsIgnoreCase("1")){
+				repeatMenu = true;
+			}else if(newOrder.equalsIgnoreCase("2")){
+				repeatMenu = false;
+			}else if(newOrder.equals("Password")){
+				System.out.println("Welcome to the Menu editor! If you're here by mistake type Exit to exit the program. ");
+				System.out.println("What is the name of the item you would like to add?");
+				String name = ( (productList.size()+1) + ". " + sc.nextLine() + "\t");
+				if (name.equalsIgnoreCase(name = ( (productList.size()+1) + ". " + "exit" + "\t"))){
+					break;
+				}
+				System.out.println("What is the name of the category for the item you would like to add?");
+				String category = (sc.nextLine()+"\t");
+				System.out.println("What is a description for the item you would like to add?");
+				String description = (sc.nextLine()+"\t");
+				System.out.println("What is the price of the item you would like to add?");
+				String price = sc.nextLine();
+				
+				Product newItem = new Product(name, category, description, price);
+				
+				
+				try(FileWriter fw = new FileWriter("Products.txt", true);
+						BufferedWriter bw = new BufferedWriter(fw);
+						PrintWriter out = new PrintWriter(bw))
+				{
+					
+					out.print("\n"+newItem);
+					//more code
+				} catch (IOException e) {
+					//exception handling left as an exercise for the reader
+				}
+				repeatMenu=true;
+			}
+			
+			
+			
+			
+		} while (repeatMenu);
 
 	}
 }
