@@ -14,7 +14,7 @@ public class ForCheck implements Payment{
 		boolean rightAmount = true;
 		do
 		{
-			System.out.println("Enter check value");
+			System.out.println("Enter check number");
 			double checkAmount = scan.nextDouble();
 			setCheck(checkAmount);
 			if (getCheck() < getGrandTotal()) {
@@ -93,5 +93,13 @@ public class ForCheck implements Payment{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public double getCardNumber(Scanner sc, String prompt) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 }
 //Ff

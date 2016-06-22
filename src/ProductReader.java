@@ -16,9 +16,6 @@ public class ProductReader {
 		double total = ((double) n) * productName.getPrice();
 		return total;
 	}
-	
-	
-	}
 
 	public static boolean ToContinue() {
 

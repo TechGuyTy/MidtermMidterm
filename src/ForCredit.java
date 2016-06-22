@@ -10,15 +10,15 @@ public class ForCredit implements Payment{
 	private double grandTotal; 
 	private String grandTotalString;
 	
-	public static double getCardNumber(Scanner sc, String prompt) {
+	public double getCardNumber(Scanner sc, String prompt) {
 		System.out.println(prompt);
-		int ccNumber = sc.nextInt();
+		String ccNumber = sc.next();
 		System.out.println("The card number you entered is " + ccNumber);
-		System.out.println("And here is your receipt");
+		System.out.println("Here is your receipt");
 		return cardNumber;
 	}
 
-
+  
 	public String getExpiration() {
 		return expiration;
 	}
@@ -109,5 +109,5 @@ public class ForCredit implements Payment{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

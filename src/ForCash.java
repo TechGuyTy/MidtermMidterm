@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ForCash implements Payment{
@@ -8,6 +9,7 @@ public class ForCash implements Payment{
 	private double grandTotal; 
 	private String grandTotalString;
 	Scanner scan = new Scanner(System.in);
+	ArrayList <Product> newProduct;
 	
 	public ForCash(){
 
@@ -33,7 +35,11 @@ public class ForCash implements Payment{
 		}while (rightAmount == false);
 		
 	}
-	
+	public static void receipt(ArrayList <Product> objects ) {
+		for (int i = 0; i < objects.size(); i++) {
+			System.out.println(objects.get(i).getName() + " " + objects.get(i).getPrice());
+		}
+	}
 	private void setSubTotal(double subTotal) {
 		this.subTotal = subTotal;
 		
@@ -99,6 +105,12 @@ public class ForCash implements Payment{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public double getCardNumber(Scanner sc, String prompt) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 
