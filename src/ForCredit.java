@@ -13,7 +13,8 @@ public class ForCredit implements Payment{
 	public static double getCardNumber(Scanner sc, String prompt) {
 		System.out.println(prompt);
 		int ccNumber = sc.nextInt();
-		System.out.println("Here is your receipt");
+		System.out.println("The card number you entered is " + ccNumber);
+		System.out.println("And here is your receipt");
 		return cardNumber;
 	}
 
@@ -28,7 +29,7 @@ public class ForCredit implements Payment{
 
 
 	public void setCardNumber(double cardNumber) {
-		this.cardNumber = cardNumber;
+		ForCredit.cardNumber = cardNumber;
 	}
 
 
@@ -65,6 +66,48 @@ public class ForCredit implements Payment{
 	public String getGrandTotalString() {
 		grandTotalString = grandTotal + " ";
 		return grandTotalString;
+	}
+
+
+	@Override
+	public double setCashPaid() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double setSubTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double getCashPaid() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double getChange() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void getCash(double subTotal, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void getCheck(double subTotal, Scanner sc) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
