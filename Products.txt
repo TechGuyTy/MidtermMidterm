@@ -10,3 +10,6 @@
 10. Sweet-Potato-	Side	Delicious Sweet Potato Side	3.99
 11. Waffle-	Side 	    Delicious Waffle Side	3.99
 12. Tots-	Side	        Delicious Tater tots	3.99
+13. exit	(burger	)A burger	2.99
+14. exit	(Burger	)A shawrma burger	3.99
+15. Burger	(Burger	)Burger	2.99
