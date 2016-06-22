@@ -56,4 +56,22 @@ public class ForCash implements Payment{
 		return grandTotal;
 	}
 
+	@Override
+	public double setCashPaid() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double setSubTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void getCash(double subTotal) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
