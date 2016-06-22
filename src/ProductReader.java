@@ -16,6 +16,11 @@ public class ProductReader {
 		double total = ((double) n) * productName.getPrice();
 		return total;
 	}
+	
+	static double RoundTo2Decimals(double val) {
+        DecimalFormat df2 = new DecimalFormat("###.##");
+    return Double.valueOf(df2.format(val));
+	}
 
 	public static boolean ToContinue() {
 
@@ -74,6 +79,7 @@ public class ProductReader {
 
 	public static void main(String[] args) {
 		int a = 0;
+		double finalFinalTotal = 0;
 
 		// public static void foodReader() {
 
@@ -143,14 +149,16 @@ public class ProductReader {
 				}
 
 				finalTotal = finalTotal + subTotal;
+				finalFinalTotal = ProductReader.RoundTo2Decimals(finalTotal * Product.getTax());
 				System.out.println("Subtotal " + finalTotal);
+				System.out.println("Your subTotal plus tax is " + finalFinalTotal);
 				// call the toContinue method
 				ProductReader.ToContinue();
 
 			}
 			System.out.println("Thank you for your purchase ");
-			// finalTotal = finalTotal + subTotal;
-			System.out.println("Your final total is " + finalTotal);
+			
+			System.out.println("Your final total is " + finalFinalTotal);
 			System.out.println("How would you like to pay? ((1)cash,(2)check,(3)credit card)");
 			int payment = sc.nextInt();
 			Validator.isValidInt(sc, payment, 1, 3);

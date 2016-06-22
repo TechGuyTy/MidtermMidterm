@@ -13,8 +13,18 @@ public class ForCredit implements Payment{
 	public double getCardNumber(Scanner sc, String prompt) {
 		System.out.println(prompt);
 		String ccNumber = sc.next();
+		
 		System.out.println("The card number you entered is " + ccNumber);
-		System.out.println("Here is your receipt");
+		System.out.println("Please enter date of expiration (mm/dd/yyyy) ");
+		String expirationDate = sc.next();
+		
+		System.out.println("The date of expiration of your card is " + expirationDate);
+		System.out.println("Please enter your CVV ");
+		int CVVnumber = sc.nextInt();
+		
+		System.out.println("Your CVV is " + CVVnumber);
+		
+		System.out.println("And here is your receipt");
 		return cardNumber;
 	}
 

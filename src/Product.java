@@ -5,7 +5,7 @@ public class Product {
 	private String category; 
 	private String description; 
 	private double price; 
-	
+	private static double tax = 0.06;
 	//constructor 
 	public Product(String name, String category, String description, double price){
 		this.name = name;
@@ -43,6 +43,11 @@ public class Product {
 	
 	public double getPrice() {
 		return price;
+	}
+	
+	public static double getTax() {
+		tax = tax + 1; 
+		return tax;
 	}
 
 	public void setName(String name) {

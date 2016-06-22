@@ -5,7 +5,7 @@ public class ForCash implements Payment{
 	private double change;
 	private double cashPaid;
 	private double subTotal; 
-	private double salesTax =0.06; 
+	private double salesTax = 1.06; 
 	private double grandTotal; 
 	private String grandTotalString;
 	Scanner scan = new Scanner(System.in);
@@ -17,19 +17,19 @@ public class ForCash implements Payment{
 	@Override
 	public  void getCash(double subTotal, Scanner scan) {
 		setSubTotal(subTotal);
-		getGrandTotal();
+		double getGrandTotal = subTotal * salesTax;
 		boolean rightAmount = true; 
 		do
 		{
 			System.out.println("Enter cash value");
 			double cash = scan.nextDouble();
 			setCashPaid(cash);
-			if (getCashPaid() < getGrandTotal()) {
+			if (getCashPaid() < getGrandTotal) {
 				System.out.println("This does not equal the total. Please check the total and input the" + "right amount.");
 				rightAmount = false;
 			} else {
 				setChange(change);
-				System.out.println("Here is your change" + getChange());
+				System.out.println("Here is your change" + ProductReader.RoundTo2Decimals(getChange()));
 				rightAmount = true;
 			}
 		}while (rightAmount == false);
@@ -46,7 +46,7 @@ public class ForCash implements Payment{
 	}
 
 	public double getChange() {
-		return change = cashPaid - subTotal;
+		return change = cashPaid - grandTotal;
 	}
 
 
