@@ -176,21 +176,31 @@ public class ProductReader {
 			System.out.println(" Sorry, we only accept (1)cash, (2)check, or (3)credit card");
 			
 		System.out.println("Would you like to add an item to the menu? ");
-         
-         sc.nextLine();
-         String newItem = sc.nextLine();
-         
-         
-         try(FileWriter fw = new FileWriter("Products.txt", true);
-                 BufferedWriter bw = new BufferedWriter(fw);
-                 PrintWriter out = new PrintWriter(bw))
-             {
-             
-                 out.println("\n"+newItem);
-                 //more code
-             } catch (IOException e) {
-                 //exception handling left as an exercise for the reader
-             }
+        
+        sc.nextLine();
+        
+        System.out.println("What is the name of the item you would like to add?");
+        String name = ( (productList.size()+1) + ". " + sc.nextLine() + "\t");
+        System.out.println("What is the name of the category for the item you would like to add?");
+        String category = (sc.nextLine()+"\t");
+        System.out.println("What is a description for the item you would like to add?");
+        String description = (sc.nextLine()+"\t");
+        System.out.println("What is the price of the item you would like to add?");
+        String price = sc.nextLine();
+        
+        Product newItem = new Product(name, category, description, price);
+        
+        
+        try(FileWriter fw = new FileWriter("Products.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw))
+            {
+            
+                out.print("\n"+newItem);
+                //more code
+            } catch (IOException e) {
+                //exception handling left as an exercise for the reader
+            }
 
 	}
 }
