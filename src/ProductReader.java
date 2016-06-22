@@ -46,7 +46,7 @@ public class ProductReader {
 	 * shoppingCart.add(ProductReader.calculateTotal(productName)); }
 	 */
 
-	public static boolean getCash(Scanner input, String prompt, double total) {
+	/*public static boolean getCash(Scanner input, String prompt, double total) {
 		boolean badPayment = false;
 		while (badPayment == false) {
 			System.out.println(prompt);
@@ -63,7 +63,7 @@ public class ProductReader {
 			}
 		}
 		return badPayment;
-	}
+	}*/
 // implemented into the ForCheck class 
 	//public void getCheckNumber(Scanner sc, String prompt) {
 		//System.out.println(prompt);
@@ -133,7 +133,6 @@ public class ProductReader {
 				ex.printStackTrace();
 			}
 			System.out.println("Enter a menu number");
-			System.out.println();
 			int choice = sc.nextInt();
 
 			System.out.println("How many would you like?");
@@ -143,135 +142,30 @@ public class ProductReader {
 			choice = choice - 1;
 
 			subTotal = calculateTotal(productList.get(choice), quantity);
-			for (int i = 0; i < placeHolder; i++) {
+			for (int i = 0; i < quantity; i++) {
 				shoppingCart.add(productList.get(choice));
+			}
+			for (int i = 0; i < placeHolder; i++) {
 				System.out.println(shoppingCart.get(i));
 			}
 
-			
-			//System.out.println();
-			//for (int i = 0; i < quantity; i++) {
 
-			
-			
-			
 			finalTotal = finalTotal + subTotal;
 			System.out.println("Subtotal "+finalTotal);
 			// call the toContinue method
 			ProductReader.ToContinue();
-			// switch (choice) {
-			// case 1:
-			// productList.get(0);
-			// System.out.println("You have chosen " +
-			// productList.get(0).getName());
-			// System.out.println("How many would you like?");
-			// int number = sc.nextInt();
-			// subTotal = (ProductReader.calculateTotal(productList.get(choice),
-			// number ));
-			// System.out.println("Your Subtotal is" + subTotal);
-			//
-			// for(int i = 0; i < number; i++){
-			// shoppingCart.add(productList.get(0));
-			// }
-			// System.out.println("Here's your shopping cart:"+shoppingCart);
-			// break;
-			// case 2:
-			// productList.get(1);
-			// System.out.println("You have chosen " + productList.get(1));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 3:
-			// productList.get(2);
-			// System.out.println("You have chosen " + productList.get(2));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 4:
-			// productList.get(3);
-			// System.out.println("You have chosen " + productList.get(3));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 5:
-			// productList.get(4);
-			// System.out.println("You have chosen " + productList.get(4));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 6:
-			// productList.get(5);
-			// System.out.println("You have chosen " + productList.get(5));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 7:
-			// productList.get(6);
-			// System.out.println("You have chosen " + productList.get(1));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 8:
-			// productList.get(7);
-			// System.out.println("You have chosen " + productList.get(7));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 9:
-			// productList.get(8);
-			// System.out.println("You have chosen " + productList.get(8));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 10:
-			// productList.get(9);
-			// System.out.println("You have chosen " + productList.get(9));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 11:
-			// productList.get(10);
-			// System.out.println("You have chosen " + productList.get(10));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 12:
-			// productList.get(11);
-			// System.out.println("You have chosen " + productList.get(11));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
-			// case 13:
-			// productList.get(12);
-			// System.out.println("You have chosen " + productList.get(12));
-			// subTotal =
-			// (ProductReader.calculateTotal(productList.get(choice)));
-			// System.out.println("Your Subtotal is" + subTotal);
-			// break;
 
-			// default:
-			// break;
 
 		}
 		System.out.println("Thank you for your purchase ");
-		finalTotal = finalTotal + subTotal;
+		//finalTotal = finalTotal + subTotal;
 		System.out.println("Your final total is " + finalTotal);
-		System.out.println("How would you like to pay? (cash,check,CreditCard)");
-		String garbage = sc.nextLine();
+		System.out.println("How would you like to pay? (cash,check, credit card)");
+		sc.nextLine();
 		String payment = sc.nextLine();
+		Payment pay = new ForCash();
 		if (payment.equalsIgnoreCase("cash")) {
-			ProductReader.getCash(sc, "Enter amount you'd like to pay", finalTotal);
+			pay.getCash(finalTotal,sc);
 		} else if (payment.equalsIgnoreCase("check")){
 			ForCheck.getCheck(sc, "Enter amount you'd like to pay");
 		} else if (payment.equalsIgnoreCase("credit card")){

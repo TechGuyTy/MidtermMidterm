@@ -1,20 +1,44 @@
+import java.util.Scanner;
 
 public class ForCash implements Payment{
 	private double change;
 	private double cashPaid;
 	private double subTotal; 
-	private double salesTax; 
+	private double salesTax =0.06; 
 	private double grandTotal; 
 	private String grandTotalString;
+	Scanner scan = new Scanner(System.in);
 	
-	public ForCash(double price, double cashPaid){
-		
-		this.cashPaid = cashPaid;
-		this.change = (cashPaid - price);
+	public ForCash(){
+
 		}
+	@Override
+	public  void getCash(double subTotal, Scanner scan) {
+		setSubTotal(subTotal);
+		getGrandTotal();
+		System.out.println("Enter cash value");
+		double cash = (scan.nextDouble());
+		setCashPaid(cash);
+		if (getCashPaid() < getGrandTotal()) {
+			System.out.println("This does not equal the total. Please check the total and input the" + "right amount.");
+		} else {
+			setChange(change);
+			System.out.println("Here is your change" + getChange());
+		}
+		
+	}
 	
+	private void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
+		
+	}
+
+	private void setGrandTotal() {
+		
+	}
+
 	public double getChange() {
-		return change;
+		return change = cashPaid - subTotal;
 	}
 
 
@@ -56,6 +80,7 @@ public class ForCash implements Payment{
 		return grandTotal;
 	}
 
+
 	@Override
 	public double setCashPaid() {
 		// TODO Auto-generated method stub
@@ -68,10 +93,6 @@ public class ForCash implements Payment{
 		return 0;
 	}
 
-	@Override
-	public void getCash(double subTotal) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
