@@ -82,11 +82,11 @@ public class ForCheck implements Payment{
 		return 0;
 	}
 
-	@Override
+	/*@Override
 	public void getCash(double subTotal, Scanner sc) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 	@Override
 	public double setSubTotal() {
@@ -98,6 +98,12 @@ public class ForCheck implements Payment{
 	public double getCardNumber(Scanner sc, String prompt) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void getCash(double subTotal, Scanner sc) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

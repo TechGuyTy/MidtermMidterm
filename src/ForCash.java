@@ -7,13 +7,8 @@ public class ForCash implements Payment{
 	private double subTotal; 
 	private double salesTax =0.06; 
 	private double grandTotal; 
-	private String grandTotalString;
 	Scanner scan = new Scanner(System.in);
-	ArrayList <Product> newProduct;
-	
-	public ForCash(){
 
-		}
 	@Override
 	public  void getCash(double subTotal, Scanner scan) {
 		setSubTotal(subTotal);
@@ -66,10 +61,10 @@ public class ForCash implements Payment{
 
 
 
-	@Override
+	/*@Override
 	public double getSubTotal() {
 		return subTotal;
-	}
+	}*/
 
 	@Override
 	public double getSalesTax() {
